@@ -1,0 +1,963 @@
+BACKUP ~da_portraits/backup~
+SUPPORT ~https://www.gibberlings3.net/forums/forum/28-miscellaneous-released-mods/~
+
+VERSION ~v7~
+
+README ~da_portraits/readme-da_portraits.html~
+
+ALWAYS
+
+  ACTION_IF NOT VARIABLE_IS_SET firebeadstate1 THEN BEGIN // check to make this happen only once per install; set in g3_cpmvars_master.tpa
+    
+	REINCLUDE ~da_portraits/lib/g3_cpmvars_master.tpa~
+	REINCLUDE ~da_portraits/lib/cd_portrait_copy.tph~
+  
+  END
+
+END
+
+LANGUAGE ~English~ ~english~ ~da_portraits/english/setup.tra~
+
+/////                                                  \\\\\
+///// Make portraits available for use by PC           \\\\\
+/////                                                  \\\\\
+
+/* Make portraits available for use by PC */
+BEGIN @10
+
+ACTION_FOR_EACH file IN 
+  b_aer1 b_aer2 b_aer3 b_aja1 b_aja2 b_aja3 b_aja4 b_alo1 b_and1 b_ano1 b_ano2 b_ano3 b_bra1 b_bra2
+  b_bra3 b_cer1 b_cor1 b_cor2 b_drf1 b_dwf1 b_dwf2 b_dwf3 b_dwf4 b_dwf5 b_dwf6 b_dwf7 b_dwf8 b_dwm1
+  b_dwm2 b_dwm3 b_dwm4 b_dwm5 b_dwm6 b_dwm7 b_dyn1 b_dyn2 b_dyn3 b_dyn4 b_dyn5 b_edw1 b_edw2 b_ef0
+  b_ef1 b_ef2 b_ef3 b_ef4 b_ef5 b_ef6 b_ef7 b_ef8 b_ef9 b_eld1 b_em0 b_em1 b_em2 b_em3 b_em4 b_em5
+  b_em6 b_em7 b_em8 b_em9 b_fal1 b_fal2 b_far1 b_gar1 b_gav1 b_hae1 b_haf1 b_haf2 b_haf3 b_haf4 b_hal1
+  b_ham1 b_ham2 b_ham3 b_ham4 b_hof1 b_hof2 b_hom1 b_hom2 b_hub1 b_huf0 b_huf1 b_huf2 b_huf3 b_huf4
+  b_huf5 b_huf6 b_huf7 b_huf8 b_huf9 b_hufa b_hufb b_hufc b_hufd b_hufe b_huff b_hum0 b_hum1 b_hum2
+  b_hum3 b_hum4 b_hum5 b_hum6 b_hum7 b_hum8 b_hum9 b_huma b_humb b_humc b_humd b_hume b_humf b_humg
+  b_humh b_humi b_humj b_humk b_huml b_humm b_humn b_humo b_hump b_humq b_humr b_imo1 b_imo2 b_imo3
+  b_iyl1 b_jah1 b_jah2 b_jah3 b_jan1 b_kag1 b_kel1 b_kel2 b_kel3 b_kels b_ket1 b_kha1 b_kiv1 b_kiv2
+  b_kiv3 b_kiv4 b_kor1 b_maz1 b_min1 b_min2 b_mon1 b_nal1 b_nal2 b_nal3 b_nal4 b_nat1 b_qua1 b_qua2
+  b_saf1 b_saf2 b_sar1 b_sar2 b_sar3 b_sar4 b_sar5 b_sar6 b_sar7 b_seb1 b_sha1 b_sha2 b_sha3 b_ski1
+  b_sol1 b_tia1 b_val1 b_val2 b_val3 b_val4 b_vals b_valv b_vic1 b_vic2 b_xan1 b_xan2 b_xan3 b_xul1
+  b_xza1 b_xza2 b_yes1 b_yos1 b_yos2 b_yos3 k#aur1 k#sara
+BEGIN
+
+  LAF cd_pc_portrait_copy STR_VAR source = "%file%" source_path = "da_portraits/portraits" END
+
+END  
+
+/////                                                  \\\\\
+///// Preserve BioWare portraits as PC portraits       \\\\\
+/////                                                  \\\\\
+  
+BEGIN @20
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee bg2 tob bg2ee eet~ @0
+
+PRINT @21
+
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scripta%jantis~ destination = ~b_ajab~ END // bg, tutu, bgt, bgee, eet
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scripta%lora~   destination = ~b_alob~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scriptb%ranwe~  destination = ~b_brab~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scriptc%oran~   destination = ~b_corb~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scriptd%ynahei~ destination = ~b_dynb~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scripte%dwin~   destination = ~b_edwb~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scripte%ldoth~  destination = ~b_eldb~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scriptf%aldorn~ destination = ~b_falb~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scriptg%arrick~ destination = ~b_garb~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scripti%moen~   destination = ~b_imob~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scriptj%aheira~ destination = ~b_jahb~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scriptk%again~  destination = ~b_kagb~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scriptk%halid~  destination = ~b_khab~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scriptk%ivan~   destination = ~b_kivb~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scriptm%insc~   destination = ~b_minb~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scriptm%ontar~  destination = ~b_monb~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scriptq%uayle~  destination = ~b_quab~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scripts%afana~  destination = ~b_safb~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scripts%hartel~ destination = ~b_shab~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scripts%kie~    destination = ~b_skib~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scriptt%iax~    destination = ~b_tiab~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scriptv%iconia~ destination = ~b_vicb~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scriptx%an~     destination = ~b_xanb~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scriptx%zar~    destination = ~b_xzab~ END 
+LAF cd_portrait_bioware STR_VAR source = EVAL ~%tutu_scripty%eslick~ destination = ~b_yesb~ END 
+LAF cd_portrait_bioware STR_VAR source = ~naerie~  destination = ~b_aerb~ END  // tutu, bgt, bg2, bg2ee, eet
+LAF cd_portrait_bioware STR_VAR source = ~nanomen~ destination = ~b_anob~ END 
+LAF cd_portrait_bioware STR_VAR source = ~ncernd~  destination = ~b_cerb~ END 
+LAF cd_portrait_bioware STR_VAR source = ~nedwin~  destination = ~b_edwn~ END 
+LAF cd_portrait_bioware STR_VAR source = ~nhaer~   destination = ~b_haeb~ END 
+LAF cd_portrait_bioware STR_VAR source = ~nimoen~  destination = ~b_imon~ END 
+LAF cd_portrait_bioware STR_VAR source = ~njaheir~ destination = ~b_jahn~ END 
+LAF cd_portrait_bioware STR_VAR source = ~njan~    destination = ~b_janb~ END 
+LAF cd_portrait_bioware STR_VAR source = ~nkeldor~ destination = ~b_kelb~ END 
+LAF cd_portrait_bioware STR_VAR source = ~nkorgan~ destination = ~b_korb~ END 
+LAF cd_portrait_bioware STR_VAR source = ~nmazzy~  destination = ~b_mazb~ END 
+LAF cd_portrait_bioware STR_VAR source = ~nminsc~  destination = ~b_minn~ END 
+LAF cd_portrait_bioware STR_VAR source = ~nnalia~  destination = ~b_nalb~ END 
+LAF cd_portrait_bioware STR_VAR source = ~nvalyga~ destination = ~b_valb~ END 
+LAF cd_portrait_bioware STR_VAR source = ~nvicon~  destination = ~b_vicn~ END 
+LAF cd_portrait_bioware STR_VAR source = ~nyoshim~ destination = ~b_yosb~ END 
+LAF cd_portrait_bioware STR_VAR source = ~sarevok~ destination = ~b_sarb~ END 
+
+/////                                                  \\\\\
+///// Aerie                                            \\\\\
+/////                                                  \\\\\
+
+BEGIN @31
+SUBCOMPONENT @30
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_aer1" destination = "naerie" source_path = "da_portraits/portraits" END 
+
+BEGIN @32
+SUBCOMPONENT @30
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_aer2" destination = "naerie" source_path = "da_portraits/portraits" END 
+
+BEGIN @33
+SUBCOMPONENT @30
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_aer3" destination = "naerie" source_path = "da_portraits/portraits" END 
+
+/////                                                  \\\\\
+///// Ajantis                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @41
+SUBCOMPONENT @40
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_aja1" destination = EVAL "%tutu_scripta%jantis" source_path = "da_portraits/portraits" END 
+
+BEGIN @42
+SUBCOMPONENT @40
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_aja2" destination = EVAL "%tutu_scripta%jantis" source_path = "da_portraits/portraits" END 
+
+BEGIN @43
+SUBCOMPONENT @40
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_aja3" destination = EVAL "%tutu_scripta%jantis" source_path = "da_portraits/portraits" END 
+
+BEGIN @44
+SUBCOMPONENT @40
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_aja4" destination = EVAL "%tutu_scripta%jantis" source_path = "da_portraits/portraits" END 
+
+/////                                                  \\\\\
+///// Alora                                            \\\\\
+/////                                                  \\\\\
+
+BEGIN @50
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_alo1" destination = EVAL "%tutu_scripta%lora" source_path = "da_portraits/portraits" END  
+
+/////                                                  \\\\\
+///// Anomen                                           \\\\\
+/////                                                  \\\\\
+
+BEGIN @61
+SUBCOMPONENT @60
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_ano1" destination = "nanomen" source_path = "da_portraits/portraits" END 
+
+BEGIN @62
+SUBCOMPONENT @60
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_ano2" destination = "nanomen" source_path = "da_portraits/portraits" END 
+
+BEGIN @63
+SUBCOMPONENT @60
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_ano3" destination = "nanomen" source_path = "da_portraits/portraits" END 
+
+/////                                                  \\\\\
+///// Branwen                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @71
+SUBCOMPONENT @70
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_bra1" destination = EVAL "%tutu_scriptb%ranwe" source_path = "da_portraits/portraits" END  
+
+BEGIN @32
+SUBCOMPONENT @70
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_bra2" destination = EVAL "%tutu_scriptb%ranwe" source_path = "da_portraits/portraits" END  
+
+BEGIN @31
+SUBCOMPONENT @70
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_bra3" destination = EVAL "%tutu_scriptb%ranwe" source_path = "da_portraits/portraits" END  
+
+/////                                                  \\\\\
+///// Cernd                                            \\\\\
+/////                                                  \\\\\
+
+BEGIN @80
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_cer1" destination = "ncernd" source_path = "da_portraits/portraits" END 
+
+/////                                                  \\\\\
+///// Coran                                            \\\\\
+/////                                                  \\\\\
+
+BEGIN @91
+SUBCOMPONENT @90
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_cor1" destination = EVAL "%tutu_scriptc%oran" source_path = "da_portraits/portraits" END  
+
+BEGIN @92
+SUBCOMPONENT @90
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_cor2" destination = EVAL "%tutu_scriptc%oran" source_path = "da_portraits/portraits" END  
+
+/////                                                  \\\\\
+///// Dynaheir                                         \\\\\
+/////                                                  \\\\\
+
+BEGIN @101
+SUBCOMPONENT @100
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_dyn1" destination = EVAL "%tutu_scriptd%ynahei" source_path = "da_portraits/portraits" END  
+
+BEGIN @102
+SUBCOMPONENT @100
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_dyn2" destination = EVAL "%tutu_scriptd%ynahei" source_path = "da_portraits/portraits" END  
+
+BEGIN @103
+SUBCOMPONENT @100
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_dyn3" destination = EVAL "%tutu_scriptd%ynahei" source_path = "da_portraits/portraits" END  
+
+BEGIN @104
+SUBCOMPONENT @100
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_dyn4" destination = EVAL "%tutu_scriptd%ynahei" source_path = "da_portraits/portraits" END  
+
+BEGIN @105
+SUBCOMPONENT @100
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_dyn5" destination = EVAL "%tutu_scriptd%ynahei" source_path = "da_portraits/portraits" END  
+
+/////                                                  \\\\\
+///// Edwin                                            \\\\\
+/////                                                  \\\\\
+
+BEGIN @111
+SUBCOMPONENT @110
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee bg2 tob bg2ee eet~ @0
+
+LAF cd_portrait_copy STR_VAR source = "b_edw1" destination = EVAL "%tutu_scripte%dwin" source_path = "da_portraits/portraits" END  
+LAF cd_portrait_copy STR_VAR source = "b_edw1" destination = "nedwin"                  source_path = "da_portraits/portraits" END  
+
+BEGIN @112
+SUBCOMPONENT @110
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee bg2 tob bg2ee eet~ @0
+
+LAF cd_portrait_copy STR_VAR source = "b_edw2" destination = EVAL "%tutu_scripte%dwin" source_path = "da_portraits/portraits" END  
+LAF cd_portrait_copy STR_VAR source = "b_edw2" destination = "nedwin"                  source_path = "da_portraits/portraits" END 
+
+/////                                                  \\\\\
+///// Eldoth                                           \\\\\
+/////                                                  \\\\\
+
+BEGIN @120
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_eld1" destination = EVAL "%tutu_scripte%ldoth" source_path = "da_portraits/portraits" END
+
+/////                                                  \\\\\
+///// Faldorn                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @91
+SUBCOMPONENT @130
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_fal1" destination = EVAL "%tutu_scriptf%aldorn" source_path = "da_portraits/portraits" END  
+
+BEGIN @92
+SUBCOMPONENT @130
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_fal2" destination = EVAL "%tutu_scriptf%aldorn" source_path = "da_portraits/portraits" END  
+
+/////                                                  \\\\\
+///// Garrick                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @140
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_gar1" destination = EVAL "%tutu_scriptg%arrick" source_path = "da_portraits/portraits" END    
+
+/////                                                  \\\\\
+///// Haer'Dalis                                       \\\\\
+/////                                                  \\\\\
+
+BEGIN @150
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_hae1" destination = "nhaer" source_path = "da_portraits/portraits" END 
+
+/////                                                  \\\\\
+///// Imoen                                            \\\\\
+/////                                                  \\\\\
+
+BEGIN @161
+SUBCOMPONENT @160
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee bg2 tob bg2ee eet~ @0
+
+LAF cd_portrait_copy STR_VAR source = "b_imo1" destination = EVAL "%tutu_scripti%moen" source_path = "da_portraits/portraits" END  
+LAF cd_portrait_copy STR_VAR source = "b_imo1" destination = "nimoen"                  source_path = "da_portraits/portraits" END 
+
+BEGIN @162
+SUBCOMPONENT @160
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee bg2 tob bg2ee eet~ @0
+
+LAF cd_portrait_copy STR_VAR source = "b_imo2" destination = EVAL "%tutu_scripti%moen" source_path = "da_portraits/portraits" END  
+LAF cd_portrait_copy STR_VAR source = "b_imo2" destination = "nimoen"                  source_path = "da_portraits/portraits" END   
+
+BEGIN @163
+SUBCOMPONENT @160
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee bg2 tob bg2ee eet~ @0
+
+LAF cd_portrait_copy STR_VAR source = "b_imo3" destination = EVAL "%tutu_scripti%moen" source_path = "da_portraits/portraits" END  
+LAF cd_portrait_copy STR_VAR source = "b_imo3" destination = "nimoen"                  source_path = "da_portraits/portraits" END 
+
+/////                                                  \\\\\
+///// Jaheira                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @171
+SUBCOMPONENT @170
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee bg2 tob bg2ee eet~ @0
+
+LAF cd_portrait_copy STR_VAR source = "b_jah1" destination = EVAL "%tutu_scriptj%aheira" source_path = "da_portraits/portraits" END  
+LAF cd_portrait_copy STR_VAR source = "b_jah1" destination = "njaheir"                   source_path = "da_portraits/portraits" END   
+
+BEGIN @172
+SUBCOMPONENT @170
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee bg2 tob bg2ee eet~ @0
+
+LAF cd_portrait_copy STR_VAR source = "b_jah2" destination = EVAL "%tutu_scriptj%aheira" source_path = "da_portraits/portraits" END  
+LAF cd_portrait_copy STR_VAR source = "b_jah2" destination = "njaheir"                   source_path = "da_portraits/portraits" END    
+
+BEGIN @33
+SUBCOMPONENT @170
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee bg2 tob bg2ee eet~ @0
+
+LAF cd_portrait_copy STR_VAR source = "b_jah3" destination = EVAL "%tutu_scriptj%aheira" source_path = "da_portraits/portraits" END  
+LAF cd_portrait_copy STR_VAR source = "b_jah3" destination = "njaheir"                   source_path = "da_portraits/portraits" END     
+
+/////                                                  \\\\\
+///// Haer'Dalis                                       \\\\\
+/////                                                  \\\\\
+
+BEGIN @180
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_jan1" destination = "njan" source_path = "da_portraits/portraits" END  
+
+/////                                                  \\\\\
+///// Kagain                                           \\\\\
+/////                                                  \\\\\
+
+BEGIN @160
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_kag1" destination = EVAL "%tutu_scriptk%again" source_path = "da_portraits/portraits" END       
+
+/////                                                  \\\\\
+///// Keldorn                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @201
+SUBCOMPONENT @200
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_kel1" destination = "nkeldor" source_path = "da_portraits/portraits" END  
+
+BEGIN @202
+SUBCOMPONENT @200
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_kel2" destination = "nkeldor" source_path = "da_portraits/portraits" END  
+
+BEGIN @203
+SUBCOMPONENT @200
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_kel3" destination = "nkeldor" source_path = "da_portraits/portraits" END  
+
+/////                                                  \\\\\
+///// Khalid                                           \\\\\
+/////                                                  \\\\\
+
+BEGIN @210
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_kha1" destination = EVAL "%tutu_scriptk%halid" source_path = "da_portraits/portraits" END  
+
+/////                                                  \\\\\
+///// Kivan                                            \\\\\
+/////                                                  \\\\\
+
+BEGIN @221
+SUBCOMPONENT @220
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_kiv1" destination = EVAL "%tutu_scriptk%ivan" source_path = "da_portraits/portraits" END   
+
+BEGIN @222
+SUBCOMPONENT @220
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_kiv2" destination = EVAL "%tutu_scriptk%ivan" source_path = "da_portraits/portraits" END     
+
+BEGIN @223
+SUBCOMPONENT @220
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_kiv3" destination = EVAL "%tutu_scriptk%ivan" source_path = "da_portraits/portraits" END       
+
+BEGIN @224
+SUBCOMPONENT @220
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_kiv4" destination = EVAL "%tutu_scriptk%ivan" source_path = "da_portraits/portraits" END       
+
+/////                                                  \\\\\
+///// Korgan                                           \\\\\
+/////                                                  \\\\\
+
+BEGIN @230
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_kor1" destination = "nkorgan" source_path = "da_portraits/portraits" END          
+
+/////                                                  \\\\\
+///// Mazzy                                            \\\\\
+/////                                                  \\\\\
+
+BEGIN @240
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_maz1" destination = "nmazzy" source_path = "da_portraits/portraits" END  
+
+/////                                                  \\\\\
+///// Minsc                                            \\\\\
+/////                                                  \\\\\
+
+BEGIN @112
+SUBCOMPONENT @250
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee bg2 tob bg2ee eet~ @0
+
+LAF cd_portrait_copy STR_VAR source = "b_min1" destination = EVAL "%tutu_scriptm%insc" source_path = "da_portraits/portraits" END  
+LAF cd_portrait_copy STR_VAR source = "b_min1" destination = "nminsc"                  source_path = "da_portraits/portraits" END  
+
+BEGIN @251
+SUBCOMPONENT @250
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee bg2 tob bg2ee eet~ @0
+
+LAF cd_portrait_copy STR_VAR source = "b_min2" destination = EVAL "%tutu_scriptm%insc" source_path = "da_portraits/portraits" END  
+LAF cd_portrait_copy STR_VAR source = "b_min2" destination = "nminsc"                  source_path = "da_portraits/portraits" END     
+
+/////                                                  \\\\\
+///// Montaron                                         \\\\\
+/////                                                  \\\\\
+
+BEGIN @260
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_mon1" destination = EVAL "%tutu_scriptm%ontar" source_path = "da_portraits/portraits" END            
+
+/////                                                  \\\\\
+///// Nalia                                            \\\\\
+/////                                                  \\\\\
+
+BEGIN @271
+SUBCOMPONENT @270
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_nal1" destination = "nnalia" source_path = "da_portraits/portraits" END  
+
+BEGIN @272
+SUBCOMPONENT @270
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_nal2" destination = "nnalia" source_path = "da_portraits/portraits" END    
+
+BEGIN @273
+SUBCOMPONENT @270
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_nal3" destination = "nnalia" source_path = "da_portraits/portraits" END     
+
+BEGIN @162
+SUBCOMPONENT @270
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_nal4" destination = "nnalia" source_path = "da_portraits/portraits" END       
+
+/////                                                  \\\\\
+///// Quayle                                           \\\\\
+/////                                                  \\\\\
+
+BEGIN @281
+SUBCOMPONENT @280
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_qua1" destination = EVAL "%tutu_scriptq%uayle" source_path = "da_portraits/portraits" END     
+
+BEGIN @282
+SUBCOMPONENT @280
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_qua2" destination = EVAL "%tutu_scriptq%uayle" source_path = "da_portraits/portraits" END      
+
+/////                                                  \\\\\
+///// Safana                                           \\\\\
+/////                                                  \\\\\
+
+BEGIN @32
+SUBCOMPONENT @290
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_saf1" destination = EVAL "%tutu_scripts%afana" source_path = "da_portraits/portraits" END 
+
+BEGIN @31
+SUBCOMPONENT @290
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_saf2" destination = EVAL "%tutu_scripts%afana" source_path = "da_portraits/portraits" END              
+
+/////                                                  \\\\\
+///// Sarevok                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @301
+SUBCOMPONENT @300
+REQUIRE_PREDICATE GAME_IS ~bgt tob bg2ee eet~ @3
+
+LAF cd_portrait_copy STR_VAR source = "b_sar1" destination = "sarevok" source_path = "da_portraits/portraits" END   
+
+BEGIN @302
+SUBCOMPONENT @300
+REQUIRE_PREDICATE GAME_IS ~bgt tob bg2ee eet~ @3
+
+LAF cd_portrait_copy STR_VAR source = "b_sar2" destination = "sarevok" source_path = "da_portraits/portraits" END     
+
+BEGIN @303
+SUBCOMPONENT @300
+REQUIRE_PREDICATE GAME_IS ~bgt tob bg2ee eet~ @3
+
+LAF cd_portrait_copy STR_VAR source = "b_sar3" destination = "sarevok" source_path = "da_portraits/portraits" END       
+
+BEGIN @304
+SUBCOMPONENT @300
+REQUIRE_PREDICATE GAME_IS ~bgt tob bg2ee eet~ @3
+
+LAF cd_portrait_copy STR_VAR source = "b_sar4" destination = "sarevok" source_path = "da_portraits/portraits" END         
+
+BEGIN @305
+SUBCOMPONENT @300
+REQUIRE_PREDICATE GAME_IS ~bgt tob bg2ee eet~ @3
+
+LAF cd_portrait_copy STR_VAR source = "b_sar5" destination = "sarevok" source_path = "da_portraits/portraits" END           
+
+BEGIN @306
+SUBCOMPONENT @300
+REQUIRE_PREDICATE GAME_IS ~bgt tob bg2ee eet~ @3
+
+LAF cd_portrait_copy STR_VAR source = "b_sar6" destination = "sarevok" source_path = "da_portraits/portraits" END           
+
+BEGIN @307
+SUBCOMPONENT @300
+REQUIRE_PREDICATE GAME_IS ~bgt tob bg2ee eet~ @3
+
+LAF cd_portrait_copy STR_VAR source = "b_sar7" destination = "sarevok" source_path = "da_portraits/portraits" END          
+
+/////                                                  \\\\\
+///// Shar-Teel                                        \\\\\
+/////                                                  \\\\\
+
+BEGIN @161
+SUBCOMPONENT @310
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_sha1" destination = EVAL "%tutu_scripts%hartel" source_path = "da_portraits/portraits" END       
+
+BEGIN @311
+SUBCOMPONENT @310
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_sha2" destination = EVAL "%tutu_scripts%hartel" source_path = "da_portraits/portraits" END          
+
+BEGIN @312
+SUBCOMPONENT @310
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_sha3" destination = EVAL "%tutu_scripts%hartel" source_path = "da_portraits/portraits" END          
+
+/////                                                  \\\\\
+///// Skie                                             \\\\\
+/////                                                  \\\\\
+
+BEGIN @320
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_ski1" destination = EVAL "%tutu_scripts%kie" source_path = "da_portraits/portraits" END                 
+
+/////                                                  \\\\\
+///// Tiax                                             \\\\\
+/////                                                  \\\\\
+
+BEGIN @330
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_tia1" destination = EVAL "%tutu_scriptt%iax" source_path = "da_portraits/portraits" END             
+
+/////                                                  \\\\\
+///// Valygar                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @341
+SUBCOMPONENT @340
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_val1" destination = "nvalyga" source_path = "da_portraits/portraits" END 
+
+BEGIN @342
+SUBCOMPONENT @340
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_val2" destination = "nvalyga" source_path = "da_portraits/portraits" END  
+
+BEGIN @343
+SUBCOMPONENT @340
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_val3" destination = "nvalyga" source_path = "da_portraits/portraits" END    
+
+BEGIN @344
+SUBCOMPONENT @340
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_val4" destination = "nvalyga" source_path = "da_portraits/portraits" END   
+
+/////                                                  \\\\\
+///// Viconia                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @351
+SUBCOMPONENT @350
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee bg2 tob bg2ee eet~ @0
+
+LAF cd_portrait_copy STR_VAR source = "b_vic1" destination = EVAL "%tutu_scriptv%iconia" source_path = "da_portraits/portraits" END  
+LAF cd_portrait_copy STR_VAR source = "b_vic1" destination = "nvicon"                    source_path = "da_portraits/portraits" END   
+
+BEGIN @352
+SUBCOMPONENT @350
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee bg2 tob bg2ee eet~ @0
+
+LAF cd_portrait_copy STR_VAR source = "b_vic2" destination = EVAL "%tutu_scriptv%iconia" source_path = "da_portraits/portraits" END  
+LAF cd_portrait_copy STR_VAR source = "b_vic2" destination = "nvicon"                    source_path = "da_portraits/portraits" END                   
+
+/////                                                  \\\\\
+///// Xan                                              \\\\\
+/////                                                  \\\\\
+
+BEGIN @361
+SUBCOMPONENT @360
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_xan1" destination = EVAL "%tutu_scriptx%an" source_path = "da_portraits/portraits" END
+
+BEGIN @362
+SUBCOMPONENT @360
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_xan2" destination = EVAL "%tutu_scriptx%an" source_path = "da_portraits/portraits" END      
+
+BEGIN @363
+SUBCOMPONENT @360
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_xan3" destination = EVAL "%tutu_scriptx%an" source_path = "da_portraits/portraits" END                    
+
+/////                                                  \\\\\
+///// Xzar                                             \\\\\
+/////                                                  \\\\\
+
+BEGIN @342
+SUBCOMPONENT @370
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_xza1" destination = EVAL "%tutu_scriptx%zar" source_path = "da_portraits/portraits" END     
+
+BEGIN @343
+SUBCOMPONENT @370
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_xza2" destination = EVAL "%tutu_scriptx%zar" source_path = "da_portraits/portraits" END                      
+
+/////                                                  \\\\\
+///// Yeslick                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @380
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @1
+
+LAF cd_portrait_copy STR_VAR source = "b_yes1" destination = EVAL "%tutu_scripty%eslick" source_path = "da_portraits/portraits" END             
+
+/////                                                  \\\\\
+///// Yoshimo                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @391
+SUBCOMPONENT @390
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_yos1" destination = "nyoshim" source_path = "da_portraits/portraits" END    
+
+BEGIN @344
+SUBCOMPONENT @390
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_yos2" destination = "nyoshim" source_path = "da_portraits/portraits" END      
+
+BEGIN @392
+SUBCOMPONENT @390
+REQUIRE_PREDICATE GAME_IS ~bgt bg2 tob bg2ee eet~ @2
+
+LAF cd_portrait_copy STR_VAR source = "b_yos3" destination = "nyoshim" source_path = "da_portraits/portraits" END             
+
+/////                                                  \\\\\
+///// Auren                                            \\\\\
+/////                                                  \\\\\      
+
+BEGIN @1000
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~auren.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "auren" destination = "k#aurb" END 
+LAF cd_portrait_copy   STR_VAR source = "k#aur1" destination = "auren" source_path = "da_portraits/portraits" END               
+
+/////                                                  \\\\\
+///// Auren                                            \\\\\
+/////                                                  \\\\\      
+
+BEGIN @1000
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~auren.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "auren" destination = "k#aurb" END 
+LAF cd_portrait_copy   STR_VAR source = "k#aur1" destination = "auren" source_path = "da_portraits/portraits" END                 
+
+/////                                                  \\\\\
+///// Faren                                            \\\\\
+/////                                                  \\\\\      
+/*
+BEGIN @1100
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~auren.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "fhfar" destination = "fhfar" END 
+LAF cd_portrait_copy   STR_VAR source = "b_far1" destination = "fhfar" source_path = "da_portraits/portraits" END           
+*/               
+
+/////                                                  \\\\\
+///// Gavin for BG                                     \\\\\
+/////                                                  \\\\\      
+
+BEGIN @1200
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~b!gavin.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "bgavin" destination = "b_gavb" END 
+LAF cd_portrait_copy   STR_VAR source = "b_gav1" destination = "bgavin" source_path = "da_portraits/portraits" END               
+
+/////                                                  \\\\\
+///// Gavin for BG2                                    \\\\\
+/////                                                  \\\\\      
+
+BEGIN @1300
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~b!gav08.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "b!gavin" destination = "b!gavb" END 
+LAF cd_portrait_copy   STR_VAR source = "b_gav1" destination = "b!gavin" source_path = "da_portraits/portraits" END                 
+
+/////                                                  \\\\\
+///// Haldamir                                         \\\\\
+/////                                                  \\\\\      
+
+BEGIN @1400
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~b!hal.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "b!halda" destination = "b_halb" END 
+LAF cd_portrait_copy   STR_VAR source = "b_hal1" destination = "b!halda" source_path = "da_portraits/portraits" END                  
+
+/////                                                  \\\\\
+///// Hubelpot                                         \\\\\
+/////                                                  \\\\\      
+
+BEGIN @1500
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~sc#hub.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "sc#hub" destination = "b_hubb" END 
+LAF cd_portrait_copy   STR_VAR source = "b_hub1" destination = "sc#hub" source_path = "da_portraits/portraits" END                   
+
+/////                                                  \\\\\
+///// Iylos                                            \\\\\
+/////                                                  \\\\\      
+
+BEGIN @1600
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~lk#iylos.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "lk#iyl" destination = "b_iylb" END 
+LAF cd_portrait_copy   STR_VAR source = "b_iyl1" destination = "lk#iyl" source_path = "da_portraits/portraits" END                     
+
+/////                                                  \\\\\
+///// Kelsey                                           \\\\\
+/////                                                  \\\\\      
+
+BEGIN @1700
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~j#klsy09.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "j#klsy" destination = "b_klsb" END 
+LAF cd_portrait_copy   STR_VAR source = "b_kels" destination = "j#klsy" source_path = "da_portraits/portraits" END                       
+
+/////                                                  \\\\\
+///// Keto                                             \\\\\
+/////                                                  \\\\\      
+
+BEGIN @1800
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~keto08.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "keto"   destination = "b_ketb" END 
+LAF cd_portrait_copy   STR_VAR source = "b_ket1" destination = "keto" source_path = "da_portraits/portraits" END                       
+
+/////                                                  \\\\\
+///// Kivan                                            \\\\\
+/////                                                  \\\\\      
+
+BEGIN @221
+SUBCOMPONENT @1900
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~p#kivan.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "p#ki1" destination = "b_ki1b" END 
+LAF cd_portrait_copy   STR_VAR source = "b_kiv1" destination = "p#ki1" source_path = "da_portraits/portraits" END       
+
+BEGIN @222
+SUBCOMPONENT @1900
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~p#kivan.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "p#ki1" destination = "b_ki1b" END 
+LAF cd_portrait_copy   STR_VAR source = "b_kiv2" destination = "p#ki1" source_path = "da_portraits/portraits" END        
+
+BEGIN @223
+SUBCOMPONENT @1900
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~p#kivan.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "p#ki1" destination = "b_ki1b" END 
+LAF cd_portrait_copy   STR_VAR source = "b_kiv3" destination = "p#ki1" source_path = "da_portraits/portraits" END        
+
+BEGIN @224
+SUBCOMPONENT @1900
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~p#kivan.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "p#ki1" destination = "b_ki1b" END 
+LAF cd_portrait_copy   STR_VAR source = "b_kiv4" destination = "p#ki1" source_path = "da_portraits/portraits" END                        
+
+/////                                                  \\\\\
+///// The Luxley Family                                \\\\\
+/////                                                  \\\\\      
+
+BEGIN @2000
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~fhlseb08.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "fhseb"   destination = "b_sebb" END 
+LAF cd_portrait_bioware STR_VAR source = "fhandre" destination = "b_andb" END 
+LAF cd_portrait_copy   STR_VAR source = "b_seb1" destination = "fhseb"   source_path = "da_portraits/portraits" END   
+LAF cd_portrait_copy   STR_VAR source = "b_and1" destination = "fhandre" source_path = "da_portraits/portraits" END                         
+
+/////                                                  \\\\\
+///// Nathaniel                                        \\\\\
+/////                                                  \\\\\      
+
+BEGIN @2100
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~nath07.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "nath"   destination = "b_natb" END 
+LAF cd_portrait_copy   STR_VAR source = "b_nat1" destination = "nath" source_path = "da_portraits/portraits" END                           
+
+/////                                                  \\\\\
+///// Sarah                                            \\\\\
+/////                                                  \\\\\      
+
+BEGIN @2200
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~k#sarah.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "sarah"  destination = "k#sarb" END 
+LAF cd_portrait_copy   STR_VAR source = "k#sara" destination = "sarah" source_path = "da_portraits/portraits" END                             
+
+/////                                                  \\\\\
+///// Solaufein                                        \\\\\
+/////                                                  \\\\\      
+
+BEGIN @2300
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~sola5.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "dm041"  destination = "b_solb" END 
+LAF cd_portrait_copy   STR_VAR source = "b_sol1" destination = "dm041" source_path = "da_portraits/portraits" END                            
+
+/////                                                  \\\\\
+///// Xulaye                                           \\\\\
+/////                                                  \\\\\      
+
+BEGIN @2400
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~lk#xula.cre~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "lk#xul" destination = "b_xulb" END 
+LAF cd_portrait_copy   STR_VAR source = "b_xul1" destination = "lk#xul" source_path = "da_portraits/portraits" END                               
+
+/////                                                  \\\\\
+///// Weimer's Valen                                   \\\\\
+/////                                                  \\\\\      
+
+BEGIN @2500
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~valenj.dlg~ @4
+
+LAF cd_portrait_bioware STR_VAR source = "valen"  destination = "b_valb" END 
+LAF cd_portrait_copy   STR_VAR source = "b_valv" destination = "valen" source_path = "da_portraits/portraits" END                                   
+
+/////                                                  \\\\\
+///// Valen Shadowbreath                               \\\\\
+/////                                                  \\\\\      
+
+/* BEGIN ~Valen Shadowbreath~ 
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~kevalen.dlg~ ~Valen Shadowbreath is required to install this component~ 
+    COPY_EXISTING ~keval1s.bmp~ ~portraits~ 
+                  ~keval2m.bmp~ ~portraits~
+    COPY ~da_portraits/original/b_valsl.bmp~ ~override/keval3l.bmp~ 
+    COPY ~da_portraits/original/b_valsm.bmp~ ~override/keval2m.bmp~ 
+    COPY ~da_portraits/original/b_valss.bmp~ ~override/keval1s.bmp~  */
+    
