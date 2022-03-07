@@ -17,7 +17,7 @@ This mod offers alternative portraits for each of the BioWare Baldur's Gate and 
 
 ## 
 
-:page_facing_up: [Read the mod's readme](https://gibberlings3.github.io/Documentation/readmes/readme-cdportraits.html) | [Français](https://gibberlings3.github.io/Documentation/readmes/readme-cdportraits-french.html)
+:page_facing_up: [Read the mod's readme](https://gibberlings3.github.io/Documentation/readmes/readme-da_portraits.html) | [Français](https://gibberlings3.github.io/Documentation/readmes/readme-da_portraits-french.html)
 
 ## 
 
