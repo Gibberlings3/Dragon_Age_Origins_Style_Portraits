@@ -1,9 +1,9 @@
 BACKUP ~da_portraits/backup~
 SUPPORT ~https://www.gibberlings3.net/forums/forum/28-miscellaneous-released-mods/~
 
-VERSION ~v7~
+VERSION ~v8~
 
-README ~da_portraits/readme-da_portraits.html~
+README ~da_portraits/readme-da_portraits-%LANGUAGE%.html~ ~da_portraits/readme-da_portraits.html~
 
 ALWAYS
 
@@ -16,7 +16,8 @@ ALWAYS
 
 END
 
-LANGUAGE ~English~ ~english~ ~da_portraits/english/setup.tra~
+LANGUAGE ~English~  ~english~ ~da_portraits/lang/english/setup.tra~
+LANGUAGE ~Francais~ ~french~  ~da_portraits/lang/french/setup.tra~
 
 /////                                                  \\\\\
 ///// Make portraits available for use by PC           \\\\\
@@ -372,7 +373,7 @@ LAF cd_portrait_copy STR_VAR source = "b_jah3" destination = EVAL "%tutu_scriptj
 LAF cd_portrait_copy STR_VAR source = "b_jah3" destination = "njaheir"                   source_path = "da_portraits/portraits" END     
 
 /////                                                  \\\\\
-///// Haer'Dalis                                       \\\\\
+///// Jan                                       \\\\\
 /////                                                  \\\\\
 
 BEGIN @180
