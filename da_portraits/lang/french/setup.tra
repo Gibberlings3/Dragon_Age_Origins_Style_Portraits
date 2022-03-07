@@ -1,0 +1,273 @@
+@0    = ~Ce composant necessite BG ou BG2~
+@1    = ~Ce composant necessite BG~
+@2    = ~Ce composant necessite BG2~
+@3    = ~Ce composant necessite ToB~
+@4    = ~Ce mod de PNJ n'est pas installe~
+
+@10   = ~Rendre les portraits Dragon Age disponibles pour le PJ~
+
+@20   = ~Conserver les portraits BioWare comme portraits de personnage~
+@21   = ~Les noms des portraits vont changer. Veuillez consulter le readme pour savoir comment.~
+
+@30   = ~Aerie~
+@31   = ~Cheveux longs~
+@32   = ~Cheveux courts~
+@33   = ~Cheveux courts et tatouages~
+
+@40   = ~Ajantis~
+@41   = ~Cheveux courts sans barbe~
+@42   = ~Cheveux courts avec barbe~
+@43   = ~Cheveux longs sans barbe~
+@44   = ~Cheveux longs avec barbe~
+
+@50   = ~Alora~
+
+@60   = ~Anomen~
+@61   = ~Arrogant~
+@62   = ~Inquiet sans barbe~
+@63   = ~Inquiet avec barbe~
+
+@70   = ~Branwen~
+@71   = ~Avec des tresses~
+
+@80   = ~Cernd~
+
+@90   = ~Coran~
+@91   = ~Sans tatouages~
+@92   = ~Avec tatouages~
+
+@100  = ~Dynaheir~
+@101  = ~Peau claire et cheveux acajou~
+@102  = ~Peau claire et cheveux sombres~
+@103  = ~Peau sombre sans tresses~
+@104  = ~Peau sombre avec tresses~
+@105  = ~Peau sombre et cheveux courts~
+
+@110  = ~Edwin~
+@111  = ~Avec cheveux et barbe~
+@112  = ~Chauve et sans barde~
+
+@120  = ~Eldoth~
+
+@130  = ~Faldorn~
+
+@140  = ~Garrick~
+
+@150  = ~Haer'Dalis~
+
+@160  = ~Imoen~
+@161  = ~Rousse~
+@162  = ~Brune~
+@163  = ~Cheveux roses~
+
+@170  = ~Jaheira~
+@171  = ~Avec couettes~
+@172  = ~Cheveux cours et sans tatouages~
+
+@180  = ~Jan~
+
+@190  = ~Kagain~
+
+@200  = ~Keldorn~
+@201  = ~Cheveux gris clairs~
+@202  = ~Cheveux gris sombre et barbe courte~
+@203  = ~Cheveux gris sombre et barbe longue~
+
+@210  = ~Khalid~
+
+@220  = ~Kivan~
+@221  = ~Triste avec tatouages~
+@222  = ~Triste sans tatouages~
+@223  = ~Moins triste avec tatouages~
+@224  = ~Moins triste sans tatouages~
+
+@230  = ~Korgan~
+
+@240  = ~Mazzy~
+
+@250  = ~Minsc~
+@251  = ~Avec des cheveux et une barbe~
+
+@260  = ~Montaron~
+
+@270  = ~Nalia~
+@271  = ~Visage rond~
+@272  = ~Visage maigre~
+@273  = ~Cheveux longs~
+
+@280  = ~Quayle~
+@281  = ~Nain~
+@282  = ~Humain~
+
+@290  = ~Safana~
+
+@300  = ~Sarevok~
+@301  = ~Beaucoup plus jeune~
+@302  = ~Avec des yeux brillants et une barbe~
+@303  = ~Avec des yeux brillants et sans barbe~
+@304  = ~Avec des yeux brillants et tatouages~
+@305  = ~Avec barbe~
+@306  = ~Sans barbe~
+@307  = ~Avec tatouages~
+
+@310  = ~Shar-Teel~
+@311  = ~Blonde~
+@312  = ~L'air froid~
+
+@320  = ~Skie~
+
+@330  = ~Tiax~
+
+@340  = ~Valygar~
+@341  = ~Pose 3/4 avec barbe~
+@342  = ~Sans barbe~
+@343  = ~Avec barbe~
+@344  = ~Avec moustache~
+
+@350  = ~Viconia~
+@351  = ~L'air maniaque, style BG~
+@352  = ~Plus élégante, style BG2~
+
+@360  = ~Xan~
+@361  = ~Quelconque~
+@362  = ~La vie est tellement vide...~
+@363  = ~En avant, plus de futilité !~
+
+@370  = ~Xzar~
+
+@380  = ~Yeslick~
+
+@390  = ~Yoshimo~
+@391  = ~Rasé de près~
+@392  = ~Avec moustache et boucles d'oreille~
+
+@1000 = ~Auren Aseph~
+
+@1200 = ~Gavin pour BG~
+
+@1300 = ~Gavin pour BG2~
+
+@1400 = ~Haldamir~
+
+@1500 = ~Hubelpot~
+
+@1600 = ~Iylos~
+
+@1700 = ~Kelsey~
+
+@1800 = ~Keto~
+
+@1900 = ~Kivan (Mod)~
+
+@2000 = ~The Luxley Family~
+
+@2100 = ~Nathaniel~
+
+@2200 = ~Sarah~
+
+@2300 = ~Solaufein~
+
+@2400 = ~Xulaye~
+
+@2500 = ~Valen (de Weimer)~
+
+
+/* =============== *
+ *  WeiDU prompts  *
+ * =============== */
+@-1000= "Le mod %TP2_FILE_NAME% contient"
+@-1001= "composants optionnels distincts.
+Pour gagner du temps, vous pouvez choisir ce que vous souhaitez faire d'eux
+au niveau general plutot que de repondre aux questions pour chacun.
+"
+@-1002= "Que faut-il faire de tous les composants qui NE sont PAS ENCORE installes ?
+Les [I]nstaller, les [S]auter, dem[A]nder pour chacun ? "
+@-1003= "Que faut-il faire de tous les composants qui sont DEJA installes ?
+Les [R]einstaller, les s[U]pprimer, les [S]auter, dem[A]nder pour chacun ? "
+
+@-1004= "S'IL VOUS PLAIT, envoyez par e-mail le fichier"
+@-1005= "a"
+
+@-1006= "Installer le composant ["
+@-1007= "] ?
+[R]einstaller, co[N]server, s[U]pprimer ou [Q]uitter ? "
+@-1008= "] ?
+[I]nstaller, [N]e pas installer ou [Q]uitter ? "
+
+@-1009= "Entrez une partie du nom du module : "
+
+@-1010= "Reinstallation du composant ["
+@-1011= "] "
+@-1012= "Reinstallation dans la langue"
+
+@-1013= "Suppression de l'ancienne installation de ["
+@-1014= "] au prealable..."
+@-1015= "SUPPRESSION REUSSIE DE L'ANCIEN"
+
+@-1016= "Installation en cours"
+@-1017= "ERREUR pendant l'installation de ["
+@-1018= "], retour a l'etat anterieur"
+@-1019= "INSTALLATION REUSSIE"
+@-1020= "Saute"
+@-1021= "Suppression de ["
+@-1022= "] (composant #"
+@-1023= ")"
+@-1024= "SUPPRESSION REUSSIE DE ["
+
+@-1025= "] ?
+[R]einstaller, co[N]server, s[U]pprimer, [Q]uitter ou choisir un parmi :"
+@-1026= "] ?
+[N]e pas installer, [Q]uitter ou choisir un parmi :"
+@-1027= " (installe actuellement)"
+
+@-1028= "Souhaitez-vous afficher les composants de ["
+@-1029= "] ?
+[Y]Oui, [N]on ? "
+
+@-1030= "] ?
+choisir un parmi :"
+@-1031= "] ?
+[R]einstaller, co[N]server, [Q]uitter ou choisir un parmi :"
+@-1032= "INSTALLATION ECHOUEE A CAUSE D'ERREURS"
+@-1033= "INSTALLATION AVEC DES ALERTES"
+@-1034= "Souhaitez-vous afficher les instructions (ReadMe) ? [Y]Oui [N]on"
+@-1035= "Dans la langue"
+
+@-1036= "Saute le GROUPE ["
+@-1037= "] pour cause d'absence des pre-requis."
+
+@-1038= "dem[A]nder pour chaque composant, tout [S]auter, ou choisir une selection pre-definie :"
+@-1039= "dem[A]nder pour chaque composant, [R]einstaller la configuration courante, tout s[U]pprimer, tout [S]auter, ou choisir une selection pre-definie :"
+
+@-1040= "
+Veuillez choisir la langue dans laquelle vous souhaitez jouer au jeu.
+Si par la suite vous desirez jouer au jeu dans une langue differente, il vous
+faudra editer le fichier weidu.conf et reinstaller vos mods.
+"
+@-1041= "Tcheque"
+@-1042= "Allemand"
+@-1043= "Anglais"
+@-1044= "Espagnol"
+@-1045= "Francais"
+@-1046= "Italien"
+@-1047= "Polonais"
+@-1048= "Portugais"
+@-1049= "Turc"
+@-1050= "Japonais"
+@-1051= "Coreen"
+@-1052= "Chinois simplifie"
+@-1053= "Russe"
+@-1054= "Ukrainien"
+
+@-1060= "
+Ce jeu est disponible en plusieurs langues mais WeiDU ne sait pas laquelle a ete choisie quand ce mod a ete installe.
+
+Veuillez indiquer quelle langue du jeu a ete utilisee quand vous avez installe ce mod. Votre choix servira jusqu'a ce que WeiDU s'arrete mais ne sera pas memorise.
+"
+@-1061= "
+Utilisation de"
+@-1062= " et "
+
+@-1063= "INSTALLATION ABANDONNEE"
+@-1064= "Abandon de l'installation de ["
+@-1065= "], retour a l'etat anterieur"
